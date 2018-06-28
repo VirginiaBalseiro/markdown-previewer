@@ -1,0 +1,25 @@
+{
+  "name": "markdown-previewer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "marked": "^0.3.19",
+    "radium": "^0.24.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-marked": "^0.3.1",
+    "react-scripts": "1.1.4",
+    "homepage": "http://VirginiaBalseiro.github.io/markdown-previewer"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
+  }
+}
