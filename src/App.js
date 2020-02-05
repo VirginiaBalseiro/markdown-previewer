@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import './App.css';
-import UserInput from './UserInput/UserInput';
-import Output from './Output/Output';
-import marked from 'marked';
-import Radium from 'radium';
+import React, { Component } from "react";
+import "./App.css";
+import UserInput from "./UserInput/UserInput";
+import Output from "./Output/Output";
+import marked from "marked";
+import Radium from "radium";
 
 marked.setOptions({
   breaks: true,
-  gfm: true,
+  gfm: true
 });
+
+// hello
 
 const placeholder = `
 # Welcome to Markdown Previewer!
@@ -46,39 +48,51 @@ and you can write **bolded text** and _italics_ too!
 ### Have fun previewing markdown!
 `;
 
-
 class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       output: placeholder,
       showCredits: false
-    }
+    };
     this.changeHandler = this.changeHandler.bind(this);
   }
 
-  changeHandler (event) {
+  changeHandler(event) {
     this.setState({
       output: event.target.value
-    })
+    });
   }
 
   toggleCreditsWidget = () => {
     const doesShow = this.state.showCredits;
-    this.setState({showCredits : !doesShow});
-  }
-  
+    this.setState({ showCredits: !doesShow });
+  };
+
   render() {
     return (
       <div className="App">
-      <h1 id="title">Markdown Previewer</h1>
-      <h3 id="credits">Created by <a href="http://www.virginiabalseiro.com" target="_blank"> Virginia Balseiro </a></h3>
-      <h4 id="cheatsheet-link"><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown Cheatsheet</a></h4>
-      <UserInput 
-        changed={this.changeHandler}
-        placeholder={this.state.output}/>
-      <Output 
-        output={this.state.output}/>
+        <h1 id="title">Markdown Previewer</h1>
+        <h3 id="credits">
+          Created by{" "}
+          <a href="http://www.virginiabalseiro.com" target="_blank">
+            {" "}
+            Virginia Balseiro{" "}
+          </a>
+        </h3>
+        <h4 id="cheatsheet-link">
+          <a
+            href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
+            target="_blank"
+          >
+            Markdown Cheatsheet
+          </a>
+        </h4>
+        <UserInput
+          changed={this.changeHandler}
+          placeholder={this.state.output}
+        />
+        <Output output={this.state.output} />
       </div>
     );
   }
